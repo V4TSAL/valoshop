@@ -1,0 +1,109 @@
+body {
+  background-color: #0f3b3e;
+}
+  
+.mainform {
+  max-width: 400px;
+  height: 250px;
+  margin: 0 auto; /* Center the form horizontally */
+  margin-top: 150px; /* Add some top margin for vertical centering */
+  padding: 40px;
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 1px 10px 10px 10px  rgb(143, 144, 144);
+}
+
+/* Heading for the login form */
+.loginhead {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #0c0d12;
+}
+
+/* Input fields in the login form */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  outline: none;
+  color: #1126b0;
+}
+
+
+/* Add some margin to the submit button */
+.form-control[type="submit"] {
+  margin-top: 20px;
+}
+
+/* Apply hover effect to submit button */
+.form-control[type="submit"]:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+.logbut{
+  height: auto;
+  display: inline-block;
+  padding: 10px 180px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 40px;
+  box-shadow: 3px 3px 3px  rgb(223, 223, 158);
+}
+
+.logbut:active {
+  background-color: #003b80;
+}
+
+
+.logbut:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(11, 141, 74, 0.3);
+}
+
+.logoutbut{
+  display: flex;
+  border-radius: 20px;
+  margin-top: 10px;
+  justify-content: center;
+  /* Add some hover and focus effects */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.logoutbut:hover {
+  box-shadow: 0 10px 10px 3px rgba(4, 4, 4, 0.3);
+}
+#meow{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.image1 {
+  box-shadow: 10px 10px 10px 1px rgba(231, 14, 14, 0.3);
+  float: left;
+  margin-right: 10px; 
+  border-radius: 20px;
+  border: #0e27a4;
+}
+.image2 {
+  box-shadow: 0 10px 10px 3px rgba(84, 194, 240, 0.3);
+  float: right;
+  /* margin-right: 10px;  */
+  border-radius: 20px;
+  border: #030613;
+}
+.curvedimg{
+  border-radius: 20px;
+
+}
