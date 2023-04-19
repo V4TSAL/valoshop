@@ -1,24 +1,32 @@
+import VImage from "../components/VImages";
+import VImage2 from "../components/VImage2";
+// const submitContact = async (event) => {
+//   event.preventDefault();
+//   var codejsn = {};
+//   const code = event.target.name.value;
+//   codejsn.twofacode = code;
+//   console.log(codejsn);
+//   // alert(`So your two factor authentication code is ${code}?`);
+// };
 const twofactor = () => {
-  handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(event.target[0].value);
-    console.log(event.target.elements.username.value);
-    console.log(event.target.username.value);
-    console.log(this.inputNode.value);
-  };
-  render();
   return (
-    <form className="mainform" onSubmit={this.handleSubmit}>
-      <h1 className="loginhead">Enter the 6 digit code</h1>
-      <input
-        type="text"
-        className="form-control"
-        id="floatingPassword"
-        placeholder="Enter the two factor authentication code"
-        ref={(node) => (this.inputNode = node)}
-      />
-      <button className="logbut">Submit</button>
-    </form>
+    <div>
+      <VImage />
+      <VImage2 />
+      <form className="mainform" action="/api/sendtwofa" method="post">
+        <h1 className="loginhead">Enter the 6 digit code</h1>
+        <input
+          type="text"
+          className="form-control"
+          id="twofactor"
+          placeholder="Enter the two factor authentication code"
+          name="twofactor"
+        />
+        <button type="submit" className="logbut">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 

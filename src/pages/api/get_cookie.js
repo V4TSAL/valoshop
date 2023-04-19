@@ -11,6 +11,7 @@ export default async function handler(req, res) {
     redirect_uri: "https://playvalorant.com/opt_in",
     response_type: "token id_token",
     scope: "account openid",
+    credentials: "include",
   };
 
   // Define the Fetch API options for the POST request
