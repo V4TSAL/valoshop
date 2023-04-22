@@ -11,17 +11,26 @@ export default async function handler(req, res) {
     redirect_uri: "https://playvalorant.com/opt_in",
     response_type: "token id_token",
     scope: "account openid",
-    credentials: "include",
   };
 
   // Define the Fetch API options for the POST request
   const options = {
     method: "POST",
-    Headers,
+    headers: Headers,
     body: JSON.stringify(data),
   };
-  let cookie = null;
+
   const response = await fetch(Endpoints.login, options);
-  console.log(response.headers);
-  return res.status(200).json({ ok: "done", cookie: returnCookie(response) });
+
+  let cookie = returnCookie(response);
+  if (cookie.asid === undefined) {
+    return res.status(404).json({
+      ok: "NotfoundAsid",
+      cookie: cookie,
+      status: response.status,
+      raw: response.headers.get("set-cookie"),
+    });
+  } else {
+    return res.status(200).json({ ok: "foundAsid", cookie: cookie });
+  }
 }
