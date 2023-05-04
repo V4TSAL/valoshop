@@ -1,5 +1,7 @@
 import VImage from "../components/VImages";
 import VImage2 from "../components/VImage2";
+import { useEffect, useState } from "react";
+
 // const submitContact = async (event) => {
 //   event.preventDefault();
 //   var codejsn = {};
@@ -9,6 +11,14 @@ import VImage2 from "../components/VImage2";
 //   // alert(`So your two factor authentication code is ${code}?`);
 // };
 const twofactor = () => {
+  const [asid, setAsid] = useState("");
+  useEffect(() => {
+    const queryParams = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+    setAsid(encodeURIComponent(queryParams.asid));
+    console.log("ASID A GAYA BHAIYA", asid);
+  }, [asid]);
   return (
     <div>
       <VImage />

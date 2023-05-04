@@ -1,33 +1,38 @@
 import VImage from "../components/VImages";
 import VImage2 from "../components/VImage2";
-// this function will send the data according to the documentation of riot games API
-// export const submitUsernamePass = async (event) => {
-//   event.preventDefault();
-//   var userpassjsn = {};
-//   const user = event.target.username.value;
-//   const pass = event.target.password.value;
-//   userpassjsn.type = "auth";
-//   userpassjsn.username = user;
-//   userpassjsn.password = pass;
-//   userpassjsn.remember = true;
-//   userpassjsn.language = "en_US";
-//   console.log(userpassjsn);
-//   const res = await fetch("/api/senduserdata", {
-//     body: JSON.stringify({ userpassjsn }),
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-
-//     method: "POST",
-//   });
-// };
-
+import { useEffect, useState } from "react";
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  const data = {
+    username: event.target.username.value,
+    password: event.target.password.value,
+  };
+  const JSONdata = JSON.stringify(data);
+  const endpoint = "api/senduserdata";
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSONdata,
+  };
+  const response = await fetch(endpoint, options);
+  console.log(response.redirected, response.url);
+  if (response.redirected) {
+    window.location = response.url;
+  }
+  const result = await response.json();
+  console.log(result);
+  if (result.res.type === "auth") {
+    alert("Wrong username or password");
+  }
+};
 const login = () => {
   return (
     <div className="formdiv">
       <VImage />
       <VImage2 />
-      <form className="mainform" action="/api/senduserdata" method="post">
+      <form className="mainform" onSubmit={handleSubmit}>
         <h1 className="loginhead">Enter your username and password</h1>
         <input
           type="text"
