@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const sendcookieeverywhere = () => {
+const Sendcookieeverywhere = () => {
   const [cukie, setCukie] = useState(null);
   useEffect(() => {
     fetch("/api/get_cookie")
@@ -26,4 +26,4 @@ const sendcookieeverywhere = () => {
     </div>
   );
 };
-export default sendcookieeverywhere;
+export default Sendcookieeverywhere;

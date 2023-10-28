@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 //   console.log(codejsn);
 //   // alert(`So your two factor authentication code is ${code}?`);
 // };
-const twofactor = () => {
+const Twofactor = () => {
   const [asid, setAsid] = useState("");
   useEffect(() => {
     const queryParams = new Proxy(new URLSearchParams(window.location.search), {
@@ -40,4 +40,4 @@ const twofactor = () => {
   );
 };
 
-export default twofactor;
+export default Twofactor;
