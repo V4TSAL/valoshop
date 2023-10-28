@@ -1,6 +1,9 @@
 import VImage from "../components/VImages";
 import VImage2 from "../components/VImage2";
 import { useEffect, useState } from "react";
+import { FormProvider } from "react-hook-form";
+import { use2Fa } from "@/components/hooks/use2fa";
+import { TextField } from "@mui/material";
 
 // const submitContact = async (event) => {
 //   event.preventDefault();
@@ -12,6 +15,7 @@ import { useEffect, useState } from "react";
 // };
 const Twofactor = () => {
   const [asid, setAsid] = useState("");
+  const {authenticationForm,getAccessToken, register} = use2Fa()
   useEffect(() => {
     const queryParams = new Proxy(new URLSearchParams(window.location.search), {
       get: (searchParams, prop) => searchParams.get(prop),
@@ -23,19 +27,10 @@ const Twofactor = () => {
     <div>
       <VImage />
       <VImage2 />
-      <form className="mainform" action="/api/sendtwofa" method="post">
-        <h1 className="loginhead">Enter the 6 digit code</h1>
-        <input
-          type="text"
-          className="form-control"
-          id="twofactor"
-          placeholder="Enter the two factor authentication code"
-          name="twofactor"
-        />
-        <button type="submit" className="logbut">
-          Submit
-        </button>
-      </form>
+      <FormProvider {...authenticationForm}>
+        <TextField label='Enter OTP' {...register('otp')}/>
+
+      </FormProvider>
     </div>
   );
 };
